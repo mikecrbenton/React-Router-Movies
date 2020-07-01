@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
-
+import MovieList from './Movies/MovieList';
+import Movie from './Movies/Movie';
 import SavedList from './Movies/SavedList';
 
 const App = () => {
+
   const [savedList, setSavedList] = useState([]);
   const [movieList, setMovieList] = useState([]);
 
+  //GET MOVIES -> LOCAL SERVER 5000==============
   useEffect(() => {
     const getMovies = () => {
       axios
@@ -20,15 +24,23 @@ const App = () => {
     }
     getMovies();
   }, []);
+  //============================================
 
   const addToSavedList = movie => {
     setSavedList([...savedList, movie]);
   };
 
+
+
   return (
     <div>
       <SavedList list={savedList} />
-      <div>Replace this Div with your Routes</div>
+
+      <Route exact path="/">
+         <MovieList movie={movieList} />
+      </Route>
+
+      <Route exact path="/movies/:id" component={Movie}/>
     </div>
   );
 };
