@@ -21,7 +21,7 @@ const MovieList = props => {
   );
 }
 
-// ***THIS IS A NEW CONCEPT*** - A COMPONENT CAN BE DEFINED WITHIN ANOTHER
+// A COMPONENT CAN BE DEFINED WITHIN ANOTHER FILE
 // IT DOESN'T HAVE TO BE IN A SEPARATE FILE
 
 function MovieDetails({ movie }) {

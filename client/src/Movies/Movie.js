@@ -4,7 +4,7 @@ import MovieCard from './MovieCard'
 import axios from 'axios';
 import styled from 'styled-components';
 
-function Movie(){
+function Movie( {addToSavedList} ){
 
    const params = useParams();
    const [movie, setMovie] = useState();
@@ -27,8 +27,8 @@ function Movie(){
 
    // Uncomment this only when you have moved on to the stretch goals
    const saveMovie = () => {
-    //const addToSavedList = props.addToSavedList;
-    //addToSavedList(movie)
+    //const addToSavedList = addToSavedList;
+    addToSavedList(movie)
   }
 
     if (!movie) {
